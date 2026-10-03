@@ -1,0 +1,214 @@
+name: rEconomy
+version: ${version}
+main: net.ch4rlesexe.economy.REconomyPlugin
+api-version: "1.21"
+authors: [ch4rlesexe]
+description: Economy SMP core (coins, teams, claims, auction house, wagers, rtp, heads, frames).
+softdepend: [Vault, VaultUnlocked, PlaceholderAPI, zHead, UltimateShop]
+depend: []
+loadbefore: [NexusAuctionHouse, UltimateShop, QuickShop-Hikari, FAuction]
+commands:
+  bal:
+    description: View balance
+    aliases: [balance, money]
+  pay:
+    description: Pay another player
+  baltop:
+    description: Top balances
+    aliases: [balancetop, moneytop]
+  sethome:
+    description: Set a home
+    permission: reconomy.homes.use
+  home:
+    description: Teleport to a home
+    permission: reconomy.homes.use
+  delhome:
+    description: Delete a home
+    aliases: [deletehome]
+    permission: reconomy.homes.use
+  homes:
+    description: List homes
+    permission: reconomy.homes.use
+  tpa:
+    description: Request teleport to a player
+  tpahere:
+    description: Request a player teleport to you
+  tpaccept:
+    description: Accept a teleport request
+    aliases: [tpyes]
+  tpdeny:
+    description: Deny a teleport request
+    aliases: [tpno]
+  tpcancel:
+    description: Cancel your outgoing teleport request
+  team:
+    description: Team management
+    aliases: [teams]
+  claim:
+    description: Claim the chunk for your team
+  unclaim:
+    description: Unclaim the chunk you stand in (or /unclaim all)
+  unclaimall:
+    description: Unclaim every team chunk (requires 3 confirmations)
+    aliases: [unclaimeverything]
+  claims:
+    description: List your team claims
+  chunkmap:
+    description: Show a map of nearby claim ownership
+    aliases: [cmap, claimmap, mapclaims]
+  claimbypass:
+    description: Toggle ignoring claim protection (staff)
+    aliases: [cbypass, bypassclaims]
+    permission: reconomy.claims.bypass
+  vanish:
+    description: Toggle vanish (hidden from players)
+    usage: /vanish [on|off|list]
+    aliases: [v, invis]
+    permission: reconomy.vanish
+  trust:
+    description: Trust a player on your team's claims
+  untrust:
+    description: Remove claim trust
+  trustlist:
+    description: List trusted players
+    aliases: [trusts]
+  wager:
+    description: Wager coins with another player
+  coinflip:
+    description: Coin flip for coins
+    aliases: [cf, flip]
+  market:
+    description: Server bazaar / fluctuating market
+    aliases: [bazaar]
+  spawn:
+    description: Teleport to spawn
+  setspawn:
+    description: Set the server spawn at your location
+    permission: reconomy.economy.admin
+  ah:
+    description: Open the auction house
+    aliases: [auction, auctionhouse]
+  gov:
+    description: Government treasury (tax account)
+    usage: /gov [bal|withdraw <amount>|deposit <amount>|pay <player> <amount>|log]
+    aliases: [government, treasury]
+    permission: reconomy.government.access
+  stats:
+    description: View PvP stats
+    aliases: [stat]
+  killtop:
+    description: Top killers leaderboard
+    aliases: [statstop, kdtop]
+  top:
+    description: Leaderboards GUI (money, kills, teams, ...)
+    aliases: [leaderboard, leaderboards, lb, tops]
+  rtp:
+    description: Paid random teleport
+    aliases: [randomtp, wild]
+    permission: reconomy.rtp.use
+  heads:
+    description: Buy decorative heads
+    aliases: [headshop, zheads]
+    permission: reconomy.heads.use
+  namecolor:
+    description: Open the permanent name color shop
+    aliases: [namecolours, namecolors, nickcolor, nickcolour, colors, colour]
+    permission: reconomy.namecolor.use
+  createmap:
+    description: Create a high-quality custom image map (costs 10000 coins). Size required.
+    usage: /createmap <url> <size>
+    aliases: [imagemap, custommap]
+    permission: reconomy.createmap.use
+  guide:
+    description: Open the how-to guide GUI
+    usage: /guide
+    aliases: [help, info]
+    permission: reconomy.guide.use
+  livingshop:
+    description: CSV-driven living shop (export / apply weekly prices + supply)
+    usage: /livingshop <export|apply|status|seed> [path]
+    aliases: [shopcsv, manualeconomy]
+    permission: reconomy.livingshop.admin
+  eco:
+    description: Admin economy give/take/set
+    usage: /eco <give|take|set|bal> <player> <amount>
+    aliases: [economy]
+    permission: reconomy.economy.admin
+  givemoney:
+    description: Give coins to a player (admin)
+    usage: /givemoney <player> <amount>
+    aliases: [givecoins]
+    permission: reconomy.economy.admin
+permissions:
+  reconomy.economy.admin:
+    description: Economy admin
+    default: op
+  reconomy.government.access:
+    description: Access Government treasury (/gov bal, withdraw, deposit)
+    default: op
+  reconomy.claims.bypass:
+    description: Allows /claimbypass to ignore claim protection
+    default: op
+  reconomy.vanish:
+    description: Use /vanish
+    default: op
+  reconomy.vanish.see:
+    description: See vanished players and /vanish list
+    default: op
+  reconomy.color:
+    description: Use & color/format codes on signs and anvil names
+    default: op
+  reconomy.market.admin:
+    description: Market admin API hooks
+    default: op
+  reconomy.homes.use:
+    description: Use personal home commands
+    default: true
+  reconomy.homes.2:
+    description: Allow 2 personal homes (default)
+    default: true
+  reconomy.homes.5:
+    description: Allow 5 personal homes
+    default: false
+  reconomy.homes.10:
+    description: Allow 10 personal homes
+    default: false
+  reconomy.homes.20:
+    description: Allow 20 personal homes
+    default: false
+  reconomy.cooldown.bypass:
+    description: Bypass teleport cooldowns (must be granted explicitly)
+    default: false
+  reconomy.combat.bypass:
+    description: Bypass combat tag (teleports + logout death)
+    default: op
+  reconomy.rtp.use:
+    description: Use /rtp
+    default: true
+  reconomy.heads.use:
+    description: Use paid /heads shop
+    default: true
+  reconomy.namecolor.use:
+    description: Open /namecolor shop
+    default: true
+  reconomy.createmap.use:
+    description: Use paid /createmap
+    default: true
+  reconomy.guide.use:
+    description: Open /guide
+    default: true
+  reconomy.livingshop.admin:
+    description: Export/apply living shop CSV (/livingshop)
+    default: op
+  reconomy.frames.shear:
+    description: Make item frames invisible with shears
+    default: true
+  reconomy.frames.restore:
+    description: Restore invisible frames with leather
+    default: true
+  reconomy.frames.wax:
+    description: Wax item frames with honeycomb
+    default: true
+  reconomy.frames.unwax:
+    description: Unwax item frames with an axe
+    default: true

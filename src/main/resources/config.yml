@@ -1,0 +1,246 @@
+currency-name: Coins
+currency-symbol: "$"
+starting-balance: 500.0
+
+homes:
+  default-limit: 2
+
+tpa:
+  timeout-seconds: 60
+
+teams:
+  home-limit: 2
+  home-upgrade-cost: 750.0
+  home-bonus-max: 8
+
+teleports:
+  warmup-seconds: 5
+
+cooldowns:
+  allow-bypass-permission: false
+  spawn: 5
+  home: 5
+  team-home: 5
+  tpa: 5
+  rtp: 60
+
+combat:
+  duration-seconds: 20
+  kill-on-logout: true
+  block-teleports: true
+
+claims:
+  per-member: 10
+  upgrade-base-cost: 150.0
+  upgrade-growth: 1.22
+  upgrade-cost-per-chunk: 150.0
+  bonus-max: 200
+  max-per-team: 50
+  protect-spawn: true
+  spawn-radius: 96
+
+auction:
+  listing-fee: 10.0
+  sales-tax-percent: 0
+  duration-hours: 24
+  max-listings-per-player: 10
+
+wager:
+  min-amount: 10.0
+  tax-percent: 2
+
+coinflip:
+  min-amount: 10.0
+  tax-percent: 2
+
+government:
+  enabled: true
+
+living-shop:
+  enabled: true
+  csv-path: manual-economy.csv
+
+market:
+  enabled: false
+  revert-interval-minutes: 5
+  volatility: 0.02
+  min-price-factor: 0.25
+  max-price-factor: 4.0
+  api:
+    enabled: false
+    host: 0.0.0.0
+    port: 18880
+    token: "CHANGE_ME_API_TOKEN"
+
+mysql:
+  host: 127.0.0.1
+  port: 3306
+  database: CHANGE_ME
+  username: CHANGE_ME
+  password: CHANGE_ME
+  pool-size: 8
+
+spawn:
+  center-x: 16
+  center-z: 0
+  base-y: 64
+
+rtp:
+  enabled: true
+  max-attempts: 32
+  worlds: []
+  tiers:
+    1k:
+      cost: 100.0
+    3k:
+      cost: 250.0
+    5k:
+      cost: 500.0
+
+heads:
+  enabled: true
+  price: 75.0
+
+frames:
+  enabled: true
+  doShearsBreak: true
+  fixWithLeather: true
+  invisibleFrameName: "Invisible Item Frame"
+  invisibleGlowFrameName: "Invisible Glow Item Frame"
+  enableWax: true
+  waxFullLock: false
+  doAxeBreak: true
+  shearsButton: LEFT
+  leatherButton: LEFT
+  honeycombButton: BOTH
+  axeButton: BOTH
+  doLeatherConsume: true
+  doHoneycombConsume: true
+
+image-maps:
+  cost: 10000.0
+  confirm-seconds: 15
+  tiles: 2
+  max-tiles: 4
+  dither: true
+
+paid-commands:
+  confirm-seconds: 15
+  createmap: 10000.0
+
+name-colors:
+  colors:
+    default:
+      name: Default
+      price: 0
+      type: solid
+      value: "#FFFFFF"
+      material: PAPER
+    red:
+      name: Red
+      price: 1500
+      type: solid
+      value: "#FF5555"
+      material: RED_DYE
+    blue:
+      name: Blue
+      price: 1500
+      type: solid
+      value: "#55FFFF"
+      material: LIGHT_BLUE_DYE
+    green:
+      name: Green
+      price: 1500
+      type: solid
+      value: "#55FF55"
+      material: LIME_DYE
+    gold:
+      name: Gold
+      price: 2500
+      type: solid
+      value: "#FFAA00"
+      material: ORANGE_DYE
+    purple:
+      name: Purple
+      price: 2500
+      type: solid
+      value: "#AA00AA"
+      material: PURPLE_DYE
+    pink:
+      name: Pink
+      price: 2500
+      type: solid
+      value: "#FF55FF"
+      material: PINK_DYE
+    aqua:
+      name: Aqua
+      price: 2500
+      type: solid
+      value: "#00AAAA"
+      material: CYAN_DYE
+    crimson:
+      name: Crimson
+      price: 5000
+      type: solid
+      value: "#FF2D55"
+      material: REDSTONE
+    neon:
+      name: Neon
+      price: 5000
+      type: solid
+      value: "#39FF14"
+      material: SLIME_BALL
+    electric:
+      name: Electric
+      price: 5000
+      type: solid
+      value: "#00D4FF"
+      material: DIAMOND
+    rose:
+      name: Rose Gold
+      price: 7500
+      type: solid
+      value: "#B76E79"
+      material: COPPER_INGOT
+    ice:
+      name: Ice
+      price: 7500
+      type: solid
+      value: "#A8E6FF"
+      material: PACKED_ICE
+    ember:
+      name: Ember
+      price: 7500
+      type: solid
+      value: "#FF4500"
+      material: BLAZE_POWDER
+    sunset:
+      name: Sunset
+      price: 10000
+      type: gradient
+      value: "#FF6B35;#F7C948"
+      material: MAGMA_CREAM
+    ocean:
+      name: Ocean
+      price: 10000
+      type: gradient
+      value: "#00C9FF;#92FE9D"
+      material: PRISMARINE_SHARD
+    candy:
+      name: Candy
+      price: 12500
+      type: gradient
+      value: "#FF9A9E;#FECFEF"
+      material: CHERRY_SAPLING
+    aurora:
+      name: Aurora
+      price: 15000
+      type: gradient
+      value: "#00FF87;#60EFFF;#B967FF"
+      material: NETHER_STAR
+    shadow:
+      name: Shadow
+      price: 15000
+      type: gradient
+      value: "#232526;#414345"
+      material: COAL
